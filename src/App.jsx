@@ -133,7 +133,7 @@ const CSS = `
 .nav .btn { padding: 10px 18px; font-size: 0.9375rem; }
 
 /* hero */
-.hero { padding: 72px 0 0; }
+.hero { padding-top: 72px; }
 .hero .lead { margin-top: 24px; }
 .hero-cta { margin-top: 32px; display: flex; flex-wrap: wrap; align-items: center; gap: 16px; }
 .hero-note { font-size: 0.9375rem; color: var(--muted); }
@@ -384,7 +384,7 @@ const CSS = `
 @media (min-width: 768px) {
   .w { padding: 0 40px; }
   .sec { padding: 96px 0; scroll-margin-top: 88px; }
-  .hero { padding: 112px 0 0; }
+  .hero { padding-top: 112px; }
   .nav-links { display: flex; }
   .stage { height: 264px; margin-top: 88px; }
   .shaft { max-width: 240px; }
