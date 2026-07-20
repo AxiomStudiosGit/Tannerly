@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" font-family="Saira, Inter, Helvetica, Arial, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#101013"/>
+      <stop offset="0.45" stop-color="#0B0B0C"/>
+      <stop offset="1" stop-color="#08080A"/>
+    </linearGradient>
+    <radialGradient id="lift" cx="0.5" cy="0" r="0.9">
+      <stop offset="0" stop-color="#16161A" stop-opacity="1"/>
+      <stop offset="1" stop-color="#0B0B0C" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="pool" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.07"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="iron" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#35383D"/>
+      <stop offset="0.44" stop-color="#1D2023"/>
+      <stop offset="1" stop-color="#0D0E10"/>
+    </linearGradient>
+    <linearGradient id="steel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#B4B7BD"/>
+      <stop offset="0.42" stop-color="#767A80"/>
+      <stop offset="1" stop-color="#34373C"/>
+    </linearGradient>
+    <linearGradient id="heat" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F0672F"/>
+      <stop offset="0.46" stop-color="#D2481A"/>
+      <stop offset="1" stop-color="#9C330F"/>
+    </linearGradient>
+    <linearGradient id="band" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.13"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0.03"/>
+    </linearGradient>
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3"/>
+    </filter>
+  </defs>
+
+  <!-- machined base -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#lift)"/>
+  <rect width="1200" height="630" filter="url(#grain)" opacity="0.05"/>
+
+  <!-- wordmark -->
+  <g>
+    <rect x="72" y="66" width="8" height="26" rx="2" fill="url(#heat)"/>
+    <text x="96" y="88" font-size="25" font-weight="500" fill="#F5F5F7" letter-spacing="-0.4">Tannerley Barbell Club</text>
+  </g>
+
+  <!-- headline -->
+  <text x="72" y="248" font-size="94" font-weight="200" fill="#F5F5F7" letter-spacing="-3">Real strength.</text>
+  <text x="72" y="344" font-size="94" font-weight="200" fill="#F5F5F7" letter-spacing="-3">Properly coached.</text>
+
+  <!-- supporting line, Inter for body as on the site -->
+  <text x="72" y="404" font-family="Inter, Helvetica, Arial, sans-serif" font-size="25" font-weight="400" fill="#8A8A8F">Small group barbell coaching. Tannerley, Central Coast NSW.</text>
+
+  <!-- the loaded bar on its machined stage -->
+  <g>
+    <rect x="72" y="452" width="1056" height="118" rx="12" fill="#131417"/>
+    <rect x="72" y="452" width="1056" height="118" rx="12" fill="url(#pool)"/>
+    <rect x="72" y="452" width="1056" height="1" fill="#FFFFFF" opacity="0.10"/>
+    <rect x="72" y="569" width="1056" height="1" fill="#000000" opacity="0.55"/>
+
+    <!-- left side, smallest plate outermost -->
+    <g>
+      <rect x="404" y="483" width="16" height="56" rx="3" fill="url(#iron)"/>
+      <rect x="404" y="507" width="16" height="9" fill="url(#band)"/>
+      <rect x="424" y="474" width="21" height="74" rx="3" fill="url(#iron)"/>
+      <rect x="424" y="505" width="21" height="12" fill="url(#band)"/>
+      <rect x="449" y="466" width="25" height="90" rx="3" fill="url(#iron)"/>
+      <rect x="449" y="504" width="25" height="14" fill="url(#heat)"/>
+      <rect x="478" y="466" width="25" height="90" rx="3" fill="url(#iron)"/>
+      <rect x="478" y="504" width="25" height="14" fill="url(#heat)"/>
+      <rect x="509" y="494" width="9" height="34" rx="2" fill="url(#steel)"/>
+    </g>
+
+    <!-- shaft -->
+    <rect x="522" y="507" width="156" height="8" rx="4" fill="url(#steel)"/>
+
+    <!-- right side, mirrored -->
+    <g>
+      <rect x="682" y="494" width="9" height="34" rx="2" fill="url(#steel)"/>
+      <rect x="697" y="466" width="25" height="90" rx="3" fill="url(#iron)"/>
+      <rect x="697" y="504" width="25" height="14" fill="url(#heat)"/>
+      <rect x="726" y="466" width="25" height="90" rx="3" fill="url(#iron)"/>
+      <rect x="726" y="504" width="25" height="14" fill="url(#heat)"/>
+      <rect x="755" y="474" width="21" height="74" rx="3" fill="url(#iron)"/>
+      <rect x="755" y="505" width="21" height="12" fill="url(#band)"/>
+      <rect x="780" y="483" width="16" height="56" rx="3" fill="url(#iron)"/>
+      <rect x="780" y="507" width="16" height="9" fill="url(#band)"/>
+    </g>
+
+    <text x="1096" y="546" text-anchor="end" font-size="22" font-weight="300" fill="#8A8A8F" letter-spacing="0.5">180 kg</text>
+  </g>
+</svg>
