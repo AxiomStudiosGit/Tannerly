@@ -1,6 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
 import { ArrowRight, Plus, Minus, MessageSquare, X } from "lucide-react";
 
+const FORM_ENDPOINT = "https://formspree.io/f/mbdnynnk";
+const endpointReady = Boolean(FORM_ENDPOINT) && FORM_ENDPOINT.startsWith("https://formspree.io/f/");
+
 /* ------------------------------------------------------------------ */
 /*  Tannerley Barbell Club  |  Axiom Studios                            */
 /*  Concept build. Fictional client, invented business data throughout. */
@@ -723,6 +726,7 @@ export default function TannerleyBarbellClub() {
   const planSheen = useSheen();
   const botSheen = useSheen();
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
   const [form, setForm] = useState({ name: "", email: "", phone: "", goal: "Get stronger" });
   const [error, setError] = useState("");
   const [bot, setBot] = useState(false); // mounted
@@ -856,12 +860,30 @@ export default function TannerleyBarbellClub() {
     setForm({ ...form, [k]: e.target.value });
     if (error) setError("");
   };
-  const submit = () => {
+  const submit = async () => {
+    if (sending) return;
     if (!form.name.trim()) return setError("Add your name so a coach knows who to ask for.");
     if (!/^\S+@\S+\.\S+$/.test(form.email.trim()))
       return setError("Check the email address, we send the confirmation there.");
+    if (!endpointReady) return setError("Booking is unavailable right now. Please call 02 5550 0100.");
     setError("");
-    setSent(true);
+    setSending(true);
+    try {
+      const res = await fetch(FORM_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (res.status === 200) {
+        setSent(true);
+      } else {
+        setError("Something went wrong sending that. Please try again or call 02 5550 0100.");
+      }
+    } catch {
+      setError("Something went wrong sending that. Please try again or call 02 5550 0100.");
+    } finally {
+      setSending(false);
+    }
   };
 
   const plate = (i, dir) => {
@@ -1150,8 +1172,8 @@ export default function TannerleyBarbellClub() {
                     <option>Change body composition</option>
                   </select>
                 </div>
-                <button className="btn" onClick={submit}>
-                  Book my free intro <ArrowRight size={17} />
+                <button className="btn" onClick={submit} disabled={sending} aria-busy={sending}>
+                  {sending ? "Sending…" : <>Book my free intro <ArrowRight size={17} /></>}
                 </button>
                 {error && (
                   <p className="err" role="alert">
